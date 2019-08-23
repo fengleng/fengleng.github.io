@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="docker脚本安装和mongodb webpack配置">
+  <meta name="description" content="Sidecar模式-整合spring-cloud-Node通过Zuul路由访问Java API">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack小知识">
-<meta property="og:url" content="http://yoursite.com/2019/08/16/webpack/index.html">
+<meta property="og:title" content="spring-cloud-Sidecar-nodejs">
+<meta property="og:url" content="http://yoursite.com/2019/08/22/2019-8-23-nodejs+springCloud/index.html">
 <meta property="og:site_name" content="峰冷">
-<meta property="og:description" content="docker脚本安装和mongodb webpack配置">
+<meta property="og:description" content="Sidecar模式-整合spring-cloud-Node通过Zuul路由访问Java API">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-18T03:18:39.463Z">
+<meta property="og:updated_time" content="2019-08-23T05:37:04.145Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack小知识">
-<meta name="twitter:description" content="docker脚本安装和mongodb webpack配置">
-  <link rel="canonical" href="http://yoursite.com/2019/08/16/webpack/">
+<meta name="twitter:title" content="spring-cloud-Sidecar-nodejs">
+<meta name="twitter:description" content="Sidecar模式-整合spring-cloud-Node通过Zuul路由访问Java API">
+  <link rel="canonical" href="http://yoursite.com/2019/08/22/2019-8-23-nodejs+springCloud/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>webpack小知识 | 峰冷</title>
+  <title>spring-cloud-Sidecar-nodejs | 峰冷</title>
   
 
 
@@ -230,7 +230,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/webpack/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/22/2019-8-23-nodejs+springCloud/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田松">
@@ -243,7 +243,7 @@
     </span>
       <header class="post-header">
         
-        <h1 class="post-title" itemprop="name headline">webpack小知识
+        <h1 class="post-title" itemprop="name headline">spring-cloud-Sidecar-nodejs
 
           
         </h1>
@@ -259,7 +259,7 @@
                 
               
 
-              <time title="创建时间：2019-08-16 15:50:55" itemprop="dateCreated datePublished" datetime="2019-08-16T15:50:55+08:00">2019-08-16</time>
+              <time title="创建时间：2019-08-22 15:50:55" itemprop="dateCreated datePublished" datetime="2019-08-22T15:50:55+08:00">2019-08-22</time>
             </span>
           
             
@@ -270,7 +270,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-18 11:18:39" itemprop="dateModified" datetime="2019-08-18T11:18:39+08:00">2019-08-18</time>
+                <time title="修改时间：2019-08-23 13:37:04" itemprop="dateModified" datetime="2019-08-23T13:37:04+08:00">2019-08-23</time>
               </span>
             
           
@@ -280,7 +280,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-nodejs/" itemprop="url" rel="index"><span itemprop="name">spring,nodejs</span></a></span>
 
                 
                 
@@ -299,12 +299,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>docker脚本安装和mongodb</p>
-<p>webpack配置</p>
+        <p>Sidecar模式-整合spring-cloud-Node通过Zuul路由访问Java API</p>
 <a id="more"></a>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const path = require(&apos;path&apos;);</span><br><span class="line">const webpack=require(&apos;webpack&apos;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &apos;./main.js&apos;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: &apos;./bundle.js&apos;,</span><br><span class="line">    path: path.join(__dirname, &apos;./dist&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">//   devServer:&#123;</span><br><span class="line">//         open:true,</span><br><span class="line">//         port:3000,</span><br><span class="line">//         contentBase:&quot;index.html&quot;,</span><br><span class="line">//         hot:true</span><br><span class="line">//   &#125;,</span><br><span class="line">//   Plugins:[&#123;</span><br><span class="line">		new htmlWebapckPlufin(&#123;</span><br><span class="line">		template:path.join(_dirname,&quot;./&quot;)</span><br><span class="line">		filename:&apos;index&apos;</span><br><span class="line">		&#125;)</span><br><span class="line">&#125;]</span><br><span class="line">  module:&#123;</span><br><span class="line">      rules:[</span><br><span class="line">          &#123;test:/\.css$/ ,use:[&apos;style-loader&apos;,&apos;css-loader&apos;]&#125; </span><br><span class="line">      ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Sidecar模式"><a href="#Sidecar模式" class="headerlink" title="Sidecar模式"></a>Sidecar模式</h3><p>​        Sidecar模式就是将应用程序功能从应用抽离出来，作为单独进程。无侵入式的为系统添加新功能，原系统无需添加额外的配置。sidecar与父系统有相同的生命周期，也叫搭档模式，是一种分解模式。</p>
+<p>​        非JVM微服务可操作Eureka 的rest 端点，实现服务注册与发现。事实上，也可使用Sidecar更方便整合非JVM微服务。Spring Cloud Netflix Sidecar的灵感来自Netflix Prana，它包括了一个简单的HTTP API来获取指定服务所有实例信息（例如主机和端口）。不仅如此，还可通过内嵌的Zuul来代理服务调用，该代理从Eureka Server中获取信息。非JVM微服务需要实现监控检查，以便Sidecar将它的状态上报给Eureka Server</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;"status":"UP"&#125;   status用于描述微服务的状态，常见取值有：UP、DOWN、OUT_OF_SERVICE以及UNKNOWN等。</span><br></pre></td></tr></table></figure>
 
+<h3 id="整合spring-cloud"><a href="#整合spring-cloud" class="headerlink" title="整合spring-cloud"></a>整合spring-cloud</h3><h6 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h6><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-netflix-sidecar<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="启动类"><a href="#启动类" class="headerlink" title="启动类"></a>启动类</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableSidecar</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SidecarNodejsEurekaClientApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(SidecarNodejsEurekaClientApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="yml配置"><a href="#yml配置" class="headerlink" title="yml配置"></a>yml配置</h6><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8005</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  application:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">nodejs-sidecar</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line"><span class="attr">    service-url:</span></span><br><span class="line"><span class="attr">      defaultZone:</span> <span class="attr">http://localhost:8000/eureka/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">sidecar:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">5000</span></span><br><span class="line"><span class="attr">  health-uri:</span> <span class="attr">http://localhost:$&#123;sidecar.port&#125;/manage/health</span></span><br><span class="line"><span class="string">management.endpoints.web.exposure.include:</span> <span class="string">"*"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Node通过Zuul路由访问Java-API"><a href="#Node通过Zuul路由访问Java-API" class="headerlink" title="Node通过Zuul路由访问Java API"></a>Node通过Zuul路由访问Java API</h3><p>​        当下微服务比较流行，就出现一个问题，服务越来越细化，前台一个页面可能需要请求多个微服务，这样就出现一种讨论是否需要聚合层，比如java后端写一个聚合接口，通过聚合接口把所有需要调用的微服务调用一次然后在聚合层统一处理，再返回给前端，这样前端就不需要调用多处后端API，这样的做法不太好。<br>使用nodejs，使得前端通过zuul路由调用后端API，这样聚合层就相当于在前端处理了</p>
 
     </div>
 
@@ -321,8 +329,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/16/nodejs安装/" rel="next" title="nodejs安装">
-                  <i class="fa fa-chevron-left"></i> nodejs安装
+                <a href="/2019/08/21/springCloud/" rel="next" title="spring-cloud-pom-base">
+                  <i class="fa fa-chevron-left"></i> spring-cloud-pom-base
                 </a>
               
             </div>
@@ -331,8 +339,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/18/2019-8-18/" rel="prev" title="2019-8-18">
-                  2019-8-18 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/08/23/2019-8-22-spring-cloud/" rel="prev" title="spring-cloud-netflix">
+                  spring-cloud-netflix <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -365,8 +373,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -432,6 +449,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sidecar模式"><span class="nav-number">1.</span> <span class="nav-text">Sidecar模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整合spring-cloud"><span class="nav-number">2.</span> <span class="nav-text">整合spring-cloud</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#依赖"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#启动类"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">启动类</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#yml配置"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">yml配置</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node通过Zuul路由访问Java-API"><span class="nav-number">3.</span> <span class="nav-text">Node通过Zuul路由访问Java API</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
